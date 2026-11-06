@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import styles from "./Chat.module.css";
 import { sendMessage } from "../../services/ollamaService";
 
@@ -9,8 +9,16 @@ type Message = {
 
 function Chat() {
     const [message, setMessage] = useState("");
-    const [messages, setMessages] = useState<Message[]>([]);
+    const [messages, setMessages] = useState<Message[]>(() => {
+    const savedMessages = localStorage.getItem("lumora-messages");
+
+    return savedMessages ? JSON.parse(savedMessages) : [];
+});
     const [loading, setLoading] = useState(false);
+
+    useEffect(() => {
+    localStorage.setItem("lumora-messages", JSON.stringify(messages));
+}, [messages]);
 
     const handleSubmit = async (e: React.FormEvent) => {
         e.preventDefault();
@@ -49,11 +57,19 @@ function Chat() {
         }
     };
 
+    const handleClearChat = () => {
+    setMessages([]);
+    localStorage.removeItem("lumora-messages");
+};
+
     return (
         <div className={styles.chat}>
             <header>
                 <h1>LUMORA</h1>
                 <p>Your Personal AI Companion</p>
+                {/* <button className={styles.newChat} onClick={handleClearChat}>
+                    + New Chat
+                </button> */}
             </header>
 
             <div className={styles.messages}>
