@@ -20,7 +20,7 @@ cd OllamaReactGUI
 ## Run project
 
 npm install
-# or
+or
 yarn install
 
 npm run dev
