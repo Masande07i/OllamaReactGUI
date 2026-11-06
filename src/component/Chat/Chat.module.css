@@ -130,6 +130,44 @@
     color: #94A3B8;
     font-size: 12px;
 }
+.chatHistory {
+    width: 100%;
+    max-width: 850px;
+    padding: 15px;
+    background-color: #172438;
+    border: 1px solid #334155;
+    border-radius: 12px;
+    margin-bottom: 15px;
+}
+
+.chatHistory h3 {
+    color: #60A5FA;
+    font-size: 16px;
+    margin-bottom: 12px;
+}
+
+.historyChat,
+.activeChat {
+    display: block;
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 6px;
+    text-align: left;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    color: #CBD5E1;
+}
+
+.historyChat {
+    background-color: transparent;
+}
+
+.historyChat:hover,
+.activeChat {
+    background-color: #2563EB;
+    color: #FFFFFF;
+}
 
 @media (max-width: 600px) {
     .chat {

@@ -114,9 +114,32 @@ function Chat() {
     setCurrentChatId(null);
     setMessage("");
 };
+   const handleOpenChat = (chat: Conversation) => {
+    setCurrentChatId(chat.id);
+    setMessages(chat.messages);
+    setMessage("");
+};
 
     return (
         <div className={styles.chat}>
+
+            <div className={styles.chatHistory}>
+            <h3>Chat History</h3>
+
+            {conversations.map((chat) => (
+                <button
+                    key={chat.id}
+                    className={
+                        currentChatId === chat.id
+                            ? styles.activeChat
+                            : styles.historyChat
+                    }
+                    onClick={() => handleOpenChat(chat)}
+                >
+                    {chat.title}
+                </button>
+            ))}
+        </div>
             <header>
                 <img src={logo} alt="Lumora Logo" className={styles.logo} />
                 <p>Your Personal AI Companion</p>
