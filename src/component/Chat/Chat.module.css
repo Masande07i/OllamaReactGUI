@@ -31,6 +31,13 @@
     gap: 15px;
     color: #F1F5F9;
 }
+.logo {
+    width: 180px;
+    height: auto;
+    object-fit: contain;
+    display: block;
+    margin: 0 auto;
+}
 .newChat {
     margin-top: 15px;
     padding: 10px 20px;

@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import styles from "./Chat.module.css";
 import { sendMessage } from "../../services/ollamaService";
+import logo from "../../assets/lumoralogo.png"
 
 type Message = {
     role: "user" | "assistant";
@@ -57,15 +58,15 @@ function Chat() {
         }
     };
 
-    const handleClearChat = () => {
-    setMessages([]);
-    localStorage.removeItem("lumora-messages");
-};
+//     const handleClearChat = () => {
+//     setMessages([]);
+//     localStorage.removeItem("lumora-messages");
+// };
 
     return (
         <div className={styles.chat}>
             <header>
-                <h1>LUMORA</h1>
+                 <img src={logo} alt="Lumora Logo" className={styles.logo} />
                 <p>Your Personal AI Companion</p>
                 {/* <button className={styles.newChat} onClick={handleClearChat}>
                     + New Chat
